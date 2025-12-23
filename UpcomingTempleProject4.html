@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Temple Project page - Coming Soon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">This page is Coming Soon</h1>
+            <p class="hero-subtitle">A new digital experience is on its way</p>
+            
+            <!-- Countdown Timer -->
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <span id="days">00</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours">00</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes">00</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds">00</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+            
+            <!-- Email Capture Form -->
+            <form class="email-form" id="notify-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit" class="btn">Notify Me</button>
+            </form>
+        </div>
+    </section>
+
+    
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <h2 class="section-title">A Divine Digital Journey is on Its Way</h2>
+            <div class="about-content">
+                <p>Welcome to the future online home of ISKCON Burla — a space for devotion, community, and spiritual upliftment.</p>
+                
+                <p>We are currently working on something beautiful to help you connect with Lord Krishna, access temple updates, festivals, and Bhakti resources, and stay engaged with our growing devotional family.</p>
+                
+                <p>🙏 Thank you for your patience.
+Stay tuned for blessings, updates, and spiritual inspiration.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.youtube.com/c/ISKCONBURLA" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com/iskcon.burla.14/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/burlaiskcon/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+            
+            <div class="footer-info">
+                <div class="powered-by">
+                    <span>Powered by</span>
+                    <div class="hosting-logo">Krishna</div>
+                </div>
+                
+                <div class="legal-links">
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; <span id="year"></span> iskconburla.com. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    
+</body>
+</html>
+<style>
+    /* ===== CSS Variables ===== */
+:root {
+    /* Colors */
+    --primary-color: #1a365d;
+    --secondary-color: #4299e1;
+    --accent-color: #ed8936;
+    --text-color: #2d3748;
+    --text-light: #718096;
+    --bg-color: #f7fafc;
+    --card-bg: #ffffff;
+    --footer-bg: #1a202c;
+    --footer-text: #e2e8f0;
+    
+    /* Fonts */
+    --font-main: 'Poppins', sans-serif;
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    
+    /* Spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+    
+    /* Borders */
+    --border-radius: 8px;
+    --border-radius-lg: 12px;
+}
+
+/* ===== Base Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+h1, h2, h3, h4 {
+    line-height: 1.2;
+    font-weight: var(--font-weight-semibold);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-md);
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-family: var(--font-main);
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #dd6b20;
+    transform: translateY(-2px);
+}
+
+/* ===== Hero Section ===== */
+.hero {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-xl) 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 30%);
+    animation: pulse 15s infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.1;
+    }
+    50% {
+        opacity: 0.2;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 0.1;
+    }
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-sm);
+    position: relative;
+    z-index: 1;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    font-weight: var(--font-weight-light);
+    margin-bottom: var(--space-xl);
+    position: relative;
+    z-index: 1;
+    opacity: 0.9;
+}
+
+/* Countdown Timer */
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+    position: relative;
+    z-index: 1;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+}
+
+.countdown-item span:first-child {
+    font-size: 2.5rem;
+    font-weight: var(--font-weight-bold);
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--space-xs);
+}
+
+.countdown-label {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+/* Email Form */
+.email-form {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.email-form input {
+    flex: 1;
+    padding: var(--space-sm);
+    border: none;
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+    font-family: var(--font-main);
+    font-size: 1rem;
+}
+
+.email-form input:focus {
+    outline: 2px solid var(--accent-color);
+}
+
+.email-form button {
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: var(--space-sm) var(--space-lg);
+}
+
+/* Features Section */
+.features {
+    padding: var(--space-xl) 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: var(--space-xl);
+    color: var(--primary-color);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+}
+
+.feature-card {
+    background: var(--card-bg);
+    padding: var(--space-lg);
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: var(--space-md);
+}
+
+.feature-title {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-sm);
+    color: var(--primary-color);
+}
+
+.feature-desc {
+    color: var(--text-light);
+    font-size: 0.9375rem;
+}
+
+/* About Section */
+.about {
+    padding: var(--space-xl) 0;
+    background: var(--card-bg);
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-content p {
+    margin-bottom: var(--space-md);
+}
+
+/* Footer */
+.footer {
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    padding: var(--space-xl) 0 var(--space-md);
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+.powered-by {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: 0.875rem;
+}
+
+.hosting-logo {
+    font-weight: var(--font-weight-bold);
+    color: var(--accent-color);
+}
+
+.legal-links {
+    display: flex;
+    gap: var(--space-md);
+    font-size: 0.875rem;
+}
+
+.legal-links a:hover {
+    color: var(--accent-color);
+}
+
+.copyright {
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
+
+/* ===== Responsive Styles ===== */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .countdown-container {
+        gap: var(--space-sm);
+    }
+    
+    .countdown-item {
+        min-width: 70px;
+    }
+    
+    .countdown-item span:first-child {
+        font-size: 2rem;
+        padding: var(--space-xs) var(--space-sm);
+    }
+    
+    .email-form {
+        flex-direction: column;
+    }
+    
+    .email-form input {
+        border-radius: var(--border-radius);
+        margin-bottom: var(--space-xs);
+    }
+    
+    .email-form button {
+        border-radius: var(--border-radius);
+        width: 100%;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-info {
+        flex-direction: column;
+    }
+    
+    .legal-links {
+        flex-direction: column;
+        gap: var(--space-xs);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.75rem;
+    }
+    
+    .countdown-container {
+        flex-wrap: wrap;
+    }
+    
+    .countdown-item {
+        min-width: 60px;
+    }
+    
+    .countdown-item span:first-child {
+        font-size: 1.5rem;
+    }
+}
+</style>
+<script>
+    // Set the launch date (YYYY, MM-1, DD, HH, MM, SS)
+// Note: Months are 0-indexed (0 = January, 11 = December)
+const launchDate = new Date(2025, 5, 22, 8, 5, 0);
+
+// Update the countdown every second
+const countdown = setInterval(function() {
+    const now = new Date().getTime();
+    const distance = launchDate - now;
+    
+    // Time calculations
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Display the result
+    document.getElementById("days").textContent = String(days).padStart(2, "0");
+    document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+    document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+    document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+    
+    // If the countdown is finished
+    if (distance < 0) {
+        clearInterval(countdown);
+        document.querySelector(".countdown-container").innerHTML = 
+            "<h3>We're Live!</h3>";
+    }
+}, 1000);
+
+// Handle form submission
+document.getElementById("notify-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const email = this.querySelector("input").value;
+    
+    // Here you would typically send the email to your server
+    console.log("Email submitted:", email);
+    
+    // Show confirmation (in a real app, you'd want something more robust)
+    alert(`Thanks! We'll notify you at ${email} when we launch.`);
+    this.reset();
+});
+
+// Update copyright year
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

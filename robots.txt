@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /uploads/
+Disallow: /init_db.sql
+Disallow: /server.js
+
+Sitemap: https://iskconburla.com/sitemap.xml 

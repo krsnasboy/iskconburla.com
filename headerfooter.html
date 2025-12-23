@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ISKCON Burla | Spiritual Harmony</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;family=Playfair+Display:wght@400;500;600;700&amp;family=Hind+Vadodara:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet"/>
+<style>
+    :root {
+        --primary: #6C4AB6;
+        --primary-light: #8D72E1;
+        --primary-dark: #4D2D9E;
+        --secondary: #FFD166;
+        --accent: #B9E0FF;
+        --light: #F8F6F4;
+        --dark: #2D2727;
+        --text-light: rgba(255,255,255,0.9);
+        --text-dark: rgba(45,39,39,0.9);
+        --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        --shadow-md: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);
+        --shadow-lg: 0 10px 25px rgba(0,0,0,0.1), 0 5px 10px rgba(0,0,0,0.05);
+        --shadow-xl: 0 20px 40px rgba(0,0,0,0.15), 0 10px 20px rgba(0,0,0,0.1);
+        --gold-light: #FFD700;
+        --gold-dark: #D4AF37;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    body {
+        font-family: 'Poppins', sans-serif;
+        color: var(--dark);
+        overflow-x: hidden;
+        background-color: var(--light);
+        touch-action: pan-y;
+        line-height: 1.7;
+    }
+    #donateFloatBtn {
+    display: none !important;
+}
+    
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: rgba(108, 74, 182, 0.1);
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: var(--primary);
+        border-radius: 5px;
+    }
+    
+    /* Header Styles */
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 0 5%;
+        height: 75px; /* Reduced from 90px */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        background-color: rgba(248, 246, 244, 0.98);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+        transform: translateY(0);
+        transition: var(--transition);
+        border-bottom: 1px solid rgba(108, 74, 182, 0.1);
+    }
+
+    header.hidden {
+        transform: translateY(-100%);
+        box-shadow: none;
+    }
+    
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        z-index: 1001;
+        transition: var(--transition);
+        text-decoration: none;
+    }
+
+    .logo:hover {
+        transform: scale(1.02);
+    }
+
+    .logo img {
+        height: 50px; /* Reduced from 60px */
+        width: auto;
+        transition: var(--transition);
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    }
+
+    .logo-text {
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        font-size: 1.6rem; /* Reduced from 1.8rem */
+        line-height: 1;
+        color: var(--primary);
+        transition: var(--transition);
+        position: relative;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .logo-text::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--secondary);
+        transition: var(--transition);
+    }
+
+    .logo:hover .logo-text::after {
+        width: 100%;
+    }
+    
+    /* Navigation */
+    nav ul {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+    }
+    
+    nav ul li {
+        position: relative;
+    }
+    
+    .nav-link {
+        text-decoration: none;
+        color: var(--dark);
+        font-weight: 500;
+        font-size: 1rem; /* Reduced from 1.1rem */
+        transition: var(--transition);
+        position: relative;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 0; /* Reduced from 10px 0 */
+    }
+
+    .nav-text {
+        position: relative;
+    }
+
+    .nav-underline {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: var(--transition);
+        transform-origin: left center;
+    }
+
+    .nav-link:hover .nav-underline {
+        width: 100%;
+    }
+
+    .nav-link:hover {
+        color: var(--primary);
+    }
+
+    .nav-link i {
+        transition: var(--transition);
+    }
+
+    .nav-link:hover i {
+        transform: translateY(-2px);
+        color: var(--primary);
+    }
+
+    /* Menu Button and Dots */
+    .nav-menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px; /* Reduced from 50px */
+        height: 45px; /* Reduced from 50px */
+        border-radius: 12px;
+        background-color: rgba(108, 74, 182, 0.1);
+        transition: var(--transition);
+        cursor: pointer;
+        flex-direction: column;
+        gap: 5px;
+        padding: 8px; /* Reduced from 10px */
+    }
+
+    .menu-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: var(--primary);
+        transition: var(--transition);
+    }
+
+    .nav-menu-btn:hover {
+        background-color: rgba(108, 74, 182, 0.2);
+        transform: rotate(90deg);
+    }
+
+    .nav-menu-btn:hover .menu-dot {
+        background-color: rgb(0, 17, 45);
+        transform: scale(1.2);
+    }
+
+    /* Header Animation */
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    header {
+        animation: fadeInDown 0.6s both;
+    }
+
+    nav ul li {
+        animation: fadeInDown 0.6s both;
+    }
+
+    nav ul li:nth-child(1) { animation-delay: 0.1s; }
+    nav ul li:nth-child(2) { animation-delay: 0.2s; }
+    nav ul li:nth-child(3) { animation-delay: 0.3s; }
+    nav ul li:nth-child(4) { animation-delay: 0.4s; }
+    nav ul li:nth-child(5) { animation-delay: 0.5s; }
+    
+    /* Enhanced Dropdown Menu */
+    .dropdown {
+        position: relative;
+    }
+    
+    .dropdown-content {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 280px;
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: var(--shadow-xl);
+        padding: 15px 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: var(--transition);
+        z-index: 100;
+    }
+    
+    .dropdown:hover .dropdown-content {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    
+    .dropdown-content a {
+        display: flex;
+        align-items: center;
+        padding: 12px 25px;
+        color: var(--dark);
+        transition: var(--transition);
+        font-size: 0.95rem;
+        gap: 10px;
+        text-decoration: none;
+    }
+    
+    .dropdown-content a i {
+        width: 20px;
+        text-align: center;
+        color: var(--primary);
+        transition: var(--transition);
+    }
+    
+    .dropdown-content a:hover {
+        background-color: rgba(108, 74, 182, 0.08);
+        color: var(--primary);
+        padding-left: 28px;
+    }
+    
+    .dropdown-content a:hover i {
+        transform: scale(1.2);
+    }
+    
+    .dropdown-login-btn {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin: 15px 20px 0 !important;
+        padding: 14px 20px !important;
+        background: linear-gradient(135deg, var(--primary), var(--primary-light)) !important;
+        color: #fff !important;
+        border-radius: 8px !important;
+        text-align: center !important;
+        font-weight: 600 !important;
+        transition: var(--transition) !important;
+        box-shadow: var(--shadow-md) !important;
+        font-size: 1rem !important;
+        text-decoration: none !important;
+        border: none;
+    }
+
+    
+    .dropdown-login-btn:hover {
+        background: linear-gradient(135deg, var(--primary-light), var(--primary)) !important;
+        transform: translateY(-2px) !important;
+        box-shadow: var(--shadow-lg) !important;
+        color: white !important;
+    }
+
+    
+    /* Professional Three-Bar Menu - Redesigned */
+    .dropdown-menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px; /* Reduced from 50px */
+        height: 45px; /* Reduced from 50px */
+        border-radius: 12px;
+        background-color: rgba(108, 74, 182, 0.1);
+        transition: var(--transition);
+        cursor: pointer;
+    }
+    
+    .dropdown-menu-btn:hover {
+        background-color: rgba(108, 74, 182, 0.2);
+        transform: rotate(90deg);
+    }
+    
+    .dropdown-menu-btn i {
+        font-size: 1.2rem;
+        color: var(--primary);
+    }
+    
+    .dropdown:last-child .dropdown-content {
+        right: 0;
+        width: 300px;
+        padding: 15px 0;
+        max-height: 70vh;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: var(--primary) rgba(108, 74, 182, 0.1);
+    }
+    
+    .dropdown:last-child .dropdown-content::-webkit-scrollbar {
+        width: 6px;
+    }
+    
+    .dropdown:last-child .dropdown-content::-webkit-scrollbar-track {
+        background: rgba(108, 74, 182, 0.1);
+        border-radius: 3px;
+    }
+    
+    .dropdown:last-child .dropdown-content::-webkit-scrollbar-thumb {
+        background-color: var(--primary);
+        border-radius: 3px;
+    }
+    
+    .dropdown:last-child .dropdown-content a {
+        padding: 14px 25px;
+        font-size: 0.95rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .dropdown:last-child .dropdown-content a:last-child {
+        border-bottom: none;
+    }
+    
+    .dropdown:last-child .dropdown-content a:hover {
+        padding-left: 28px;
+    }
+    
+    .dropdown:last-child .dropdown-login-btn {
+        margin: 20px 25px 0;
+        padding: 12px 20px;
+        font-size: 0.95rem;
+    }
+    
+    /* Enhanced Hamburger Menu */
+    .hamburger {
+        display: none;
+        cursor: pointer;
+        z-index: 1001;
+        width: 30px;
+        height: 24px;
+        position: relative;
+        transition: var(--transition);
+    }
+    
+    .hamburger div {
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: var(--dark);
+        border-radius: 3px;
+        transition: all 0.3s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+        transform-origin: center;
+    }
+    
+    .hamburger div:nth-child(1) {
+        top: 0;
+        left: 0;
+    }
+    
+    .hamburger div:nth-child(2) {
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        opacity: 1;
+    }
+    
+    .hamburger div:nth-child(3) {
+        bottom: 0;
+        left: 0;
+    }
+    
+    .hamburger.active div:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 9px);
+        top: 0;
+    }
+    
+    .hamburger.active div:nth-child(2) {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    
+    .hamburger.active div:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -9px);
+        bottom: 0;
+    }
+    
+    /* Enhanced Mobile Menu - Redesigned */
+    .mobile-menu {
+        position: fixed;
+        top: 75px; /* Adjusted to match new header height */
+        left: -100%;
+        width: 85%;
+        max-width: 350px;
+        height: calc(100vh - 75px); /* Adjusted to match new header height */
+        background-color: white;
+        transition: var(--transition);
+        z-index: 1000;
+        overflow-y: auto;
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+        padding: 20px 0 100px;
+        scrollbar-width: thin;
+        scrollbar-color: var(--primary) rgba(108, 74, 182, 0.1);
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .mobile-menu::-webkit-scrollbar {
+        width: 6px;
+    }
+    
+    .mobile-menu::-webkit-scrollbar-track {
+        background: rgba(108, 74, 182, 0.1);
+        border-radius: 3px;
+    }
+    
+    .mobile-menu::-webkit-scrollbar-thumb {
+        background-color: var(--primary);
+        border-radius: 3px;
+    }
+    
+    .mobile-menu.active {
+        left: 0;
+    }
+    
+    .mobile-menu ul {
+        list-style: none;
+    }
+    
+    .mobile-menu ul li {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .mobile-menu ul li a {
+        display: flex;
+        align-items: center;
+        padding: 16px 25px;
+        color: var(--dark);
+        text-decoration: none;
+        transition: var(--transition);
+        font-size: 1rem;
+        gap: 12px;
+    }
+    
+    .mobile-menu ul li a i {
+        width: 20px;
+        text-align: center;
+        color: var(--primary);
+        transition: var(--transition);
+    }
+    
+    .mobile-menu ul li a:hover {
+        background-color: rgba(108, 74, 182, 0.1);
+        color: var(--primary);
+        padding-left: 30px;
+    }
+    
+    .mobile-menu ul li a:hover i {
+        transform: scale(1.2);
+    }
+    
+    .mobile-submenu {
+        padding-left: 20px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+        background-color: rgba(108, 74, 182, 0.03);
+    }
+    
+    .mobile-submenu.active {
+        max-height: 500px;
+    }
+    
+    .mobile-submenu a {
+        padding-left: 35px !important;
+        font-size: 0.9rem !important;
+    }
+    
+    .mobile-submenu a i {
+        font-size: 0.8rem;
+    }
+    
+    .mobile-login-btn {
+        display: block;
+        margin: 25px;
+        padding: 14px;
+        background: linear-gradient(135deg, var(--primary), var(--primary-light));
+        color: white;
+        border-radius: 8px;
+        text-align: center;
+        font-weight: 600;
+        text-decoration: none;
+        transition: var(--transition);
+        box-shadow: var(--shadow-md);
+        border: none;
+    }
+    
+    .mobile-login-btn:hover {
+        background: linear-gradient(135deg, var(--primary-light), var(--primary));
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+    }
+    
+    /* Menu Overlay */
+    .menu-overlay {
+        position: fixed;
+        top: 75px; /* Adjusted to match new header height */
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 75px); /* Adjusted to match new header height */
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+        pointer-events: auto;
+    }
+    
+    .menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Footer */
+    footer {
+        background: linear-gradient(135deg, var(--dark), #1a1a1a);
+        color: white;
+        padding: 80px 5% 40px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    footer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('https://i.imgur.com/mandala-pattern.png') center/cover no-repeat;
+        opacity: 0.03;
+        pointer-events: none;
+    }
+    
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .footer-column h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+        color: var(--secondary);
+        position: relative;
+        display: inline-block;
+    }
+
+    .footer-column h3::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 50px;
+        height: 2px;
+        background: var(--primary-light);
+    }
+    
+    .footer-column ul {
+        list-style: none;
+    }
+    
+    .footer-column ul li {
+        margin-bottom: 15px;
+    }
+    
+    .footer-column ul li a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .footer-column ul li a:hover {
+        color: white;
+        padding-left: 5px;
+    }
+    
+    .footer-column ul li a i {
+        width: 20px;
+        text-align: center;
+        transition: var(--transition);
+    }
+
+    /* Contacts Column */
+    .footer-column.contacts-column h3 {
+        color: var(--secondary);
+    }
+    
+    .footer-column.contacts-column ul li a {
+        white-space: nowrap;
+    }
+
+    /* Enhanced Social Media Icons */
+    .footer-column ul li a.social-icon {
+        position: relative;
+        overflow: hidden;
+        padding-left: 35px;
+    }
+
+    .footer-column ul li a.social-icon i {
+        position: absolute;
+        left: 0;
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+    }
+
+    .footer-column ul li a.social-icon:hover i {
+        transform: scale(1.2) rotate(10deg);
+    }
+
+    .footer-column ul li a.facebook i {
+        background-color: #3b5998;
+    }
+
+    .footer-column ul li a.instagram i {
+        background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+    }
+
+    .footer-column ul li a.youtube i {
+        background-color: #ff0000;
+    }
+
+    .footer-column ul li a.twitter i {
+        background-color: #1DA1F2;
+    }
+
+    .footer-column ul li a.whatsapp i {
+        background-color: #25D366;
+    }
+    
+    .footer-bottom {
+        text-align: center;
+        margin-top: 60px;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.9rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    .footer-bottom p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    /* Body class for when modal is open */
+    body.modal-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+    }
+
+    /* Main content area */
+    main {
+        min-height: calc(100vh - 75px - 200px); /* Adjusted to match new header height */
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 5%;
+    }
+
+    section {
+        padding: 100px 0;
+        position: relative;
+    }
+
+    @media (max-width: 768px) {
+        .mobile-menu {
+            height: 100dvh !important;
+            overflow-y: auto !important;
+            -webkit-overflow-scrolling: touch !important;
+            overscroll-behavior-y: contain !important;
+        }
+
+        body.menu-open {
+            touch-action: none;
+        }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1200px) {
+    }
+
+    @media (max-width: 992px) {
+        nav ul {
+            gap: 15px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        header {
+            padding: 10px 5%;
+            height: 70px; /* Adjusted to match new header height */
+        }
+        
+        .logo img {
+            height: 45px; /* Adjusted to match new header height */
+        }
+        
+        .logo-text {
+            font-size: 1.4rem; /* Adjusted to match new header height */
+        }
+        
+        nav.desktop-nav {
+            display: none;
+        }
+        
+        .hamburger {
+            display: block;
+        }
+        
+        .mobile-menu {
+            top: 70px; /* Adjusted to match new header height */
+            height: calc(100vh - 70px); /* Adjusted to match new header height */
+        }
+        
+        .menu-overlay {
+            top: 70px; /* Adjusted to match new header height */
+            height: calc(100vh - 70px); /* Adjusted to match new header height */
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .logo-text {
+            font-size: 1.3rem;
+        }
+        
+        .footer-content {
+            grid-template-columns: 1fr;
+        }
+        
+        .mobile-menu {
+            width: 85%;
+        }
+    }
+</style>
+</head>
+<body>
+<!-- Header -->
+<header id="header">
+<a class="logo" href="#">
+<img alt="ISKCON Burla logo" id="logo-img" src="https://i.imgur.com/dhcKR8L.png"/>
+<span class="logo-text">ISKCON Burla</span>
+</a>
+<nav class="desktop-nav">
+<ul>
+<li>
+<a class="nav-link" href="javascript:void(0);">
+<i class="fas fa-calendar-alt"></i>
+<span class="nav-text">Events</span>
+<span class="nav-underline"></span>
+</a>
+</li>
+<li>
+<a class="nav-link" href="javascript:void(0);">
+<i class="fas fa-store"></i>
+<span class="nav-text">Temple Store</span>
+<span class="nav-underline"></span>
+</a>
+</li>
+<li>
+<a class="nav-link" href="javascript:void(0);">
+<i class="fas fa-cow"></i>
+<span class="nav-text">Gau Seva</span>
+<span class="nav-underline"></span>
+</a>
+</li>
+<li class="dropdown">
+<a class="nav-link" href="javascript:void(0);">
+<i class="fas fa-hands-helping"></i>
+<span class="nav-text">Seva Opportunities</span>
+<i class="fas fa-chevron-down dropdown-icon"></i>
+<span class="nav-underline"></span>
+</a>
+<div class="dropdown-content">
+<a href="javascript:void(0);"><i class="fas fa-kitchen-set"></i> Cooking Seva</a>
+<a href="javascript:void(0);"><i class="fas fa-broom"></i> Cleaning Seva</a>
+<a href="javascript:void(0);"><i class="fas fa-book"></i> Book Distribution</a>
+<a href="javascript:void(0);"><i class="fas fa-music"></i> Kirtan Seva</a>
+<a href="javascript:void(0);"><i class="fas fa-hand-holding-heart"></i> Volunteer</a>
+<a class="dropdown-login-btn" href="javascript:void(0);">Become Nitya sevak</a>
+</div>
+</li>
+<li class="dropdown">
+<a class="nav-menu-btn" href="javascript:void(0);">
+<div class="menu-dot"></div>
+<div class="menu-dot"></div>
+<div class="menu-dot"></div>
+</a>
+<div class="dropdown-content">
+<a href="javascript:void(0);"><i class="fas fa-home"></i> Home</a>
+<a href="javascript:void(0);"><i class="fas fa-book-open"></i> Spiritual Counceling</a>
+<a href="javascript:void(0);"><i class="fas fa-images"></i> Gallery</a>
+<a href="javascript:void(0);"><i class="fas fa-video"></i> Media</a>
+<a href="javascript:void(0);"><i class="fas fa-info-circle"></i> About Us</a>
+<a href="javascript:void(0);"><i class="fas fa-map-marker-alt"></i> Contact</a>
+<a class="dropdown-login-btn" href="javascript:void(0);">IYF Admin Login</a>
+</div>
+</li>
+</ul>
+</nav>
+<div class="hamburger">
+<div></div>
+<div></div>
+<div></div>
+</div>
+</header>
+<!-- Mobile Menu -->
+<div class="mobile-menu">
+<ul>
+<li><a href="javascript:void(0);"><i class="fas fa-home"></i> Home</a></li>
+<li><a href="javascript:void(0);"><i class="fas fa-calendar-alt"></i> Events</a></li>
+<li><a href="javascript:void(0);"><i class="fas fa-store"></i> Temple Store</a></li>
+<li><a href="javascript:void(0);"><i class="fas fa-cow"></i> Gau Seva</a></li>
+<li class="mobile-dropdown">
+<a class="mobile-dropdown-toggle" href="javascript:void(0);"><i class="fas fa-hands-helping"></i> Seva Opportunities <i class="fas fa-chevron-down"></i></a>
+<div class="mobile-submenu">
+<a href="javascript:void(0);"><i class="fas fa-kitchen-set"></i> Cooking Seva</a>
+<a href="javascript:void(0);"><i class="fas fa-broom"></i> Cleaning Seva</a>
+<a href="javascript:void(0);"><i class="fas fa-book"></i> Book Distribution</a>
+<a href="javascript:void(0);"><i class="fas fa-music"></i> Kirtan Seva</a>
+<a href="javascript:void(0);"><i class="fas fa-hand-holding-heart"></i> Volunteer</a>
+</div>
+</li>
+<li><a href="javascript:void(0);"><i class="fas fa-book-open"></i> Spiritual Counceling</a></li>
+<li><a href="javascript:void(0);"><i class="fas fa-images"></i> Gallery</a></li>
+<li><a href="javascript:void(0);"><i class="fas fa-video"></i> Media</a></li>
+<li><a href="javascript:void(0);"><i class="fas fa-info-circle"></i> About Us</a></li>
+<li><a href="javascript:void(0);"><i class="fas fa-map-marker-alt"></i> Contact</a></li>
+</ul>
+<a class="mobile-login-btn" href="javascript:void(0);">IYF Admin Login</a>
+</div>
+<div class="menu-overlay"></div>
+<!-- Main Content Area -->
+<main>
+<!-- Content will be added here -->
+</main>
+<!-- Footer -->
+<footer>
+<div class="footer-content">
+<div class="footer-column">
+<h3>Activities</h3>
+<ul>
+<li><a href="javascript:void(0);"><i class="fas fa-bell"></i> Daily Darshan</a></li>
+<li><a href="javascript:void(0);"><i class="fas fa-utensils"></i> Sunday Love Feast</a></li>
+<li><a href="javascript:void(0);"><i class="fas fa-cow"></i> Gau Seva</a></li>
+<li><a href="javascript:void(0);"><i class="fas fa-hands-helping"></i> Volunteer</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Resources</h3>
+<ul>
+<li><a href="javascript:void(0);"><i class="fas fa-book-open"></i> Bhagavad-gita</a></li>
+<li><a href="javascript:void(0);"><i class="fas fa-book"></i>Srila Prabhupad Books</a></li>
+<li><a href="javascript:void(0);"><i class="fa-solid fa-y"></i>Youth Programs</a></li>
+<li><a href="javascript:void(0);"><i class="fa-solid fa-people-roof"></i> Temple Administration</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Connect With Us</h3>
+<ul>
+<li><a class="social-icon" href="javascript:void(0);"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+<li><a class="social-icon" href="javascript:void(0);"><i class="fab fa-youtube"></i> YouTube</a></li>
+<li><a class="social-icon" href="javascript:void(0);"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+<li><a class="social-icon" href="javascript:void(0);"><i class="fab fa-twitter"></i> 𝕏 (formerly Twitter)</a></li>
+</ul>
+</div>
+<div class="footer-column contacts-column">
+<h3>Contacts</h3>
+<ul>
+<li><a href="tel:+1234567890"><i class="fas fa-phone"></i> +91 98765-43210</a></li>
+<li><a href="mailto:info@iskconburla.org"><i class="fas fa-envelope"></i> info@divineiskcon.org</a></li>
+<li><a href="javascript:void(0);"><i class="fas fa-clock"></i> Open Every day</a></li>
+<li><a href="javascript:void(0);" style="display: inline-block; white-space: normal; word-break: break-word;">
+<i class="fas fa-map-marker-alt"></i> ISKCON Burla, near Siphon, PC Bridge, Burla, India, 768019
+      </a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p><i class="far fa-copyright"></i> 2025 ISKCON Burla. All Rights Reserved.</p>
+</div>
+</footer>
+<script>
+    // Mobile Menu Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const menuOverlay = document.querySelector('.menu-overlay');
+    const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+    
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        menuOverlay.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+    });
+    menuOverlay.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        document.body.classList.remove('menu-open');
+    });
+    
+    // Mobile Dropdown Toggle
+    mobileDropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            const parent = toggle.parentElement;
+            const submenu = parent.querySelector('.mobile-submenu');
+            const icon = toggle.querySelector('.fa-chevron-down');
+            
+            parent.classList.toggle('active');
+            submenu.classList.toggle('active');
+            icon.classList.toggle('fa-rotate-180');
+        });
+    });
+    
+    // Header Scroll Behavior
+    const header = document.getElementById('header');
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll <= 0) {
+            header.classList.remove('hidden');
+            return;
+        }
+        
+        if (currentScroll > lastScroll && !header.classList.contains('hidden')) {
+            // Scroll down
+            header.classList.add('hidden');
+        } else if (currentScroll < lastScroll && header.classList.contains('hidden')) {
+            // Scroll up
+            header.classList.remove('hidden');
+        }
+        
+        lastScroll = currentScroll;
+    });
+    
+    // Responsive Adjustments
+    function handleResize() {
+        // Close mobile menu if open when resizing to desktop
+        if (window.innerWidth > 768             && mobileMenu.classList.contains('active')) {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
+    }
+
+    window.addEventListener('resize', handleResize);
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Animation on scroll initialization
+    function initAOS() {
+        const elements = document.querySelectorAll('.animate-on-scroll');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        elements.forEach(element => {
+            observer.observe(element);
+        });
+    }
+
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        initAOS();
+        
+        // Preload images
+        const images = [
+            'https://i.imgur.com/dhcKR8L.png',
+            // Add other important images to preload here
+        ];
+        
+        images.forEach(img => {
+            new Image().src = img;
+        });
+    });
+</script>
+</body>
+</html>
